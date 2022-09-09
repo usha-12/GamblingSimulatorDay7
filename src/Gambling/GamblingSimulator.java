@@ -32,6 +32,7 @@ public class GamblingSimulator {
         else {
             funds=funds-bet;
         }
+        displayResults(betResult);
     }
     public void displayResults(boolean result){
         System.out.println();
@@ -42,5 +43,15 @@ public class GamblingSimulator {
         System.out.println("Funds :" +funds);
     }
     /*As a Gambler make $1 bet so either win or loose $1*/
+    public void gamble(){
+        int minimumFund = funds - (funds/2);
+        int maximumFund = funds + (funds/2);
+        while (funds<maximumFund && funds >minimumFund){
+            makeBet();
+        }
+        System.out.println("Player resigns for the day:");
+    }
+    /*As a Calculative Gambler if won or lost 50% of the stake,would resign for the
+day*/
 
 }
