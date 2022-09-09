@@ -1,5 +1,7 @@
 package Gambling;
 
+import java.util.Scanner;
+
 public class GamblingSimulator {
     public int funds =0;
     public int bet = 0;
@@ -8,6 +10,7 @@ public class GamblingSimulator {
     public int cumulativeFunds = 0;
     public int daysWon=0;
     public int daysLost=0;
+    public boolean wonOrNot = false;
     public static void main(String[] args) {
         System.out.println("Welcome to the gambling Simulator ");
         System.out.println("This problem simulates a Gambler who starts with a stake and bets every game to win or loose some stake. Being a Calculative Gambler exits if the Stake reaches a high or a low limit");
@@ -84,6 +87,37 @@ day*/
             if (!daysArray[i])
                 System.out.println(" day"+(i+1));
     }
+
     /*Would also like to know my luckiest day where I won maximum and my unluckiest day where I lost maximum*/
+    public void playGame(){
+        gameInitialise();
+        dailyGamble();
+        displayTwentyDaysResult();
+        displayLuckyDays();
+        continueGameOrStop();
+    }
+
+
+    public void continueGameOrStop(){
+        Scanner sc = new Scanner(System.in);
+        if(wonOrNot){
+            System.out.println("you have won:");
+            System.out.println("Congratulation");
+            System.out.println("Yes-to play for another month");
+            System.out.println("Enter stop-to quit the game");
+            char gamingOption=sc.next().charAt(0);
+            if (gamingOption=='y'||gamingOption=='Y')
+                playGame();
+            else if (gamingOption=='s'||gamingOption=='S')
+                System.out.println("thank you for playing");
+
+        }
+        else {
+            System.out.println("you have lost");
+            System.out.println("you can not play again Better luck next time");
+        }
+        sc.close();
+    }
+    /*If won would like to continue playing next month or stop Gambling*/
 
 }
