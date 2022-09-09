@@ -4,6 +4,7 @@ public class GamblingSimulator {
     public int funds =0;
     public int bet = 0;
     public int wins = 0;
+    public boolean[] daysArray=new boolean[20];
     public int cumulativeFunds = 0;
     public int daysWon=0;
     public int daysLost=0;
@@ -73,5 +74,16 @@ day*/
         System.out.println("Total Funds :"+cumulativeFunds);
     }
     /*Each month would like know the days won and lost and by how much..*/
+    public void displayLuckyDays(){
+        System.out.println("Lucky days :");
+        for (int i=0;i<daysArray.length; i++)
+            if(daysArray[i])
+                System.out.println(" Day"+(i+1));
+        System.out.println("Lucky days :");
+        for (int i =0; i<daysArray.length;i++)
+            if (!daysArray[i])
+                System.out.println(" day"+(i+1));
+    }
+    /*Would also like to know my luckiest day where I won maximum and my unluckiest day where I lost maximum*/
 
 }
