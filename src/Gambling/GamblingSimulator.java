@@ -4,6 +4,7 @@ public class GamblingSimulator {
     public int funds =0;
     public int bet = 0;
     public int wins = 0;
+    public int cumulativeFunds = 0;
     public static void main(String[] args) {
         System.out.println("Welcome to the gambling Simulator ");
         System.out.println("This problem simulates a Gambler who starts with a stake and bets every game to win or loose some stake. Being a Calculative Gambler exits if the Stake reaches a high or a low limit");
@@ -53,5 +54,22 @@ public class GamblingSimulator {
     }
     /*As a Calculative Gambler if won or lost 50% of the stake,would resign for the
 day*/
+
+    public void dailyGamble(){
+        for (int day = 1; day <= 20; day++){
+            funds = 100;
+            gamble();
+        }
+        this.displayTwentyDaysResult();
+    }
+    public void displayTwentyDaysResult(){
+        System.out.println("Funds stats after 20 days of gambling:");
+        if (cumulativeFunds>(100*20))
+            System.out.println("Total Fund Won :" +(cumulativeFunds-(100*20)));
+        else
+            System.out.println("Total Funds Lost : " +((100*20)-cumulativeFunds));
+        System.out.println("Total Funds :"+cumulativeFunds);
+    }
+    /*After 20 days of playing every day would like to know the total amount won or lost.*/
 
 }
