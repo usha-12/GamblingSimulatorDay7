@@ -32,6 +32,7 @@ public class GamblingSimulator {
         else {
             funds=funds-bet;
         }
+        displayResults(betResult);
     }
     public void displayResults(boolean result){
         System.out.println();
